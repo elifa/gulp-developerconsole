@@ -4,7 +4,7 @@ gulp-developerconsole
 ## Sample gulpfile.js for using the developerconsole:
 
 ```js
-var developerconsole = require("./tools/gulp-developerconsole")({
+var developerconsole = require("gulp-developerconsole")({
     "reports": {
         "jasmine": "reports/jasmine.json",
         "jshint": "reports/jshint.json"
@@ -13,14 +13,14 @@ var developerconsole = require("./tools/gulp-developerconsole")({
 
 // Lint Task
 gulp.task("lint", function() {
-    gulp.src(directories.js + "/**/*.js")
+    gulp.src("javascripts/src/**/*.js")
         .pipe(jshint())
         .pipe(developerconsole.jshintReporter());           // JSHint reporter from gulp-developerconsole
 });
 
 // Jasmine Task
 gulp.task("test", function() {
-    gulp.src(directories.spec + "/**/*.js")
+    gulp.src("javascripts/spec/**/*.js")
         .pipe(jasmine({
             "reporter": developerconsole.jasmineReporter()  // Jasmine reporter from gulp-developerconsole
         }));
@@ -28,7 +28,7 @@ gulp.task("test", function() {
 
 // Add Developer Console to Our HTML
 gulp.task("html", function() {
-    gulp.src(directories.root + "/" + mainHtml)
+    gulp.src("index.html")
         .pipe(rename("index.dev.html"))
         .pipe(developerconsole.consoleInjector())           // Console from gulp-developerconsole
         .pipe(gulp.dest(directories.root));
@@ -38,7 +38,7 @@ gulp.task("watch", function() {
     gulp.run("lint", "test", "html");
 
     // Watch For Changes To Our JS
-    gulp.watch(directories.js + "/**/*.js", function(){
+    gulp.watch("javascripts/**/*.js", function(){
         gulp.run("lint", "test");
     });
 
