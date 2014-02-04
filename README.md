@@ -1,7 +1,4 @@
-gulp-developerconsole
-=====================
-
-## Sample gulpfile.js for using the developerconsole:
+## Example creating a index.dev.html containing the developerconsole
 
 ```js
 var developerconsole = require("gulp-developerconsole")({
@@ -31,7 +28,7 @@ gulp.task("html", function() {
     gulp.src("index.html")
         .pipe(rename("index.dev.html"))
         .pipe(developerconsole.consoleInjector())           // Console from gulp-developerconsole
-        .pipe(gulp.dest(directories.root));
+        .pipe(gulp.dest("."));
 });
 
 gulp.task("watch", function() {
