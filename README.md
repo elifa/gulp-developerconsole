@@ -1,9 +1,9 @@
 gulp-developerconsole
 =====================
 
-Sample gulpfile.js for using the developerconsole:
-=====================
+## Sample gulpfile.js for using the developerconsole:
 
+```js
 var developerconsole = require("./tools/gulp-developerconsole")({
     "reports": {
         "jasmine": "reports/jasmine.json",
@@ -47,3 +47,4 @@ gulp.task("watch", function() {
         gulp.run("html");
     });
 });
+```
