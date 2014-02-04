@@ -2,10 +2,23 @@
     "name": "gulp-developerconsole",
     "version": "0.0.1",
     "main": "./index.js",
+    "description": "A Gulp plugin that injects a console presenting test results into the main page.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/elifa/gulp-developerconsole"
+    },
     "author": {
         "name": "Elias Faxö",
         "email": "elias.faxo@gmail.com"
     },
+    "keywords": [
+        "gulpfriendly",
+        "gulp",
+        "jshint",
+        "jasmine",
+        "developerconsole"
+    ],
     "dependencies": {
         "event-stream": "*",
         "through2": "~0.4.0",
